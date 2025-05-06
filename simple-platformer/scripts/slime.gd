@@ -14,14 +14,16 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var should_flip = false
 
 	if ray_cast_left.is_colliding():
-		direction = 1
+		var collider = ray_cast_left.get_collider()
+		if collider is TileMap:
+			direction = 1
 
 	if ray_cast_right.is_colliding():
-		should_flip = true
-		direction = -1
+		var collider = ray_cast_right.get_collider()
+		if collider is TileMap:
+			direction = -1
 
 		
 	animated_sprite_2d.flip_h = direction == 0
