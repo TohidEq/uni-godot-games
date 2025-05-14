@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b2yk8c5nbh5km"]
+[gd_scene load_steps=11 format=3 uid="uid://b2yk8c5nbh5km"]
 
 [ext_resource type="Texture2D" uid="uid://bb14e56cb8txw" path="res://assets/sprites/slime_green.png" id="1_371uh"]
 [ext_resource type="Script" uid="uid://b3xmiwbyms3y2" path="res://scripts/slime.gd" id="1_n6pvg"]
@@ -43,6 +43,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gstla"]
 size = Vector2(8, 11)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6pvg"]
+size = Vector2(14, 12)
+
 [node name="Slime" type="Node2D"]
 script = ExtResource("1_n6pvg")
 
@@ -61,7 +64,18 @@ shape = SubResource("RectangleShape2D_gstla")
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(1, -6)
 target_position = Vector2(9, 0)
+collision_mask = 64
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(0, -6)
 target_position = Vector2(-10, 0)
+collision_mask = 64
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 65
+collision_mask = 65
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_n6pvg")
+debug_color = Color(0.545318, 0.354647, 0.208559, 0.223529)

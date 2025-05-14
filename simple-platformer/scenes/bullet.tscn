@@ -1,7 +1,75 @@
-[gd_scene load_steps=3 format=3 uid="uid://rojn4j1oharl"]
+[gd_scene load_steps=8 format=3 uid="uid://rojn4j1oharl"]
 
 [ext_resource type="Texture2D" uid="uid://bubll46ug1jcs" path="res://assets/sprites/bullets/02.png" id="1_mkf8s"]
 [ext_resource type="Script" uid="uid://cqufkqlwc26x0" path="res://scripts/bullet.gd" id="1_y25gk"]
+[ext_resource type="AudioStream" uid="uid://c1p1f8nsfrovk" path="res://assets/sounds/tap.wav" id="3_l5glv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y25gk"]
+radius = 1.0
+
+[sub_resource type="Animation" id="Animation_eoqba"]
+resource_name = "hitted"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hitted:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_l5glv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("hitted:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qncy5"]
+_data = {
+&"RESET": SubResource("Animation_l5glv"),
+&"hitted": SubResource("Animation_eoqba")
+}
 
 [node name="Bullet" type="Node2D"]
 script = ExtResource("1_y25gk")
@@ -13,4 +81,21 @@ texture = ExtResource("1_mkf8s")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 scale = Vector2(2.35, 2.35)
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 65
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_y25gk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qncy5")
+}
+
+[node name="hitted" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_l5glv")
+
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

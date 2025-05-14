@@ -17,15 +17,15 @@ func _process(delta: float) -> void:
 
 	if ray_cast_left.is_colliding():
 		var collider = ray_cast_left.get_collider()
-		if collider is TileMap:
-			direction = 1
+		direction = 1
+		
 
 	if ray_cast_right.is_colliding():
 		var collider = ray_cast_right.get_collider()
-		if collider is TileMap:
-			direction = -1
-
-		
+		direction = -1
+	
+	
+	
 	animated_sprite_2d.flip_h = direction == 0
 	
 	position.x += direction*SPEED*delta;
