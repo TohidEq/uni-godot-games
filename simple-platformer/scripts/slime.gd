@@ -3,14 +3,14 @@ extends Node2D
 @onready var ray_cast_right: RayCast2D = $RayCastRight
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var slime_healthbar: AnimatedSprite2D = $Node2D/slimeHealthbar
+@onready var slime_healthbar: Sprite2D = $Node2D/slimeHealthbar
 
 const SPEED = 60;
 var direction = 1;
 
 @export var slime_max_health = 5;
 var slime_health = slime_max_health;
-@export var slime_max_healthbar_size:float = 1.40;
+var slime_max_healthbar_size:float = 0.045;
 var slime_healthbar_size
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
