@@ -1,6 +1,6 @@
 extends Node
 @onready var score_label: Label = $"../Labels/ScoreLabel"
-@onready var score_only: Label = $"../Camera2D/CanvasLayer/ScoreOnly"
+@onready var score_only: Label = $"../CanvasLayer/ScoreOnly"
 
 var score = 0;
 

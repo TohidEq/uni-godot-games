@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b2yk8c5nbh5km"]
+[gd_scene load_steps=16 format=3 uid="uid://b2yk8c5nbh5km"]
 
 [ext_resource type="Texture2D" uid="uid://bb14e56cb8txw" path="res://assets/sprites/slime_green.png" id="1_371uh"]
 [ext_resource type="Script" uid="uid://b3xmiwbyms3y2" path="res://scripts/slime.gd" id="1_n6pvg"]
 [ext_resource type="PackedScene" uid="uid://bhoblsy3hkco8" path="res://scenes/killzone.tscn" id="2_p2gj0"]
+[ext_resource type="Texture2D" uid="uid://dvmhcg3vm76yf" path="res://assets/sprites/slime_purple.png" id="4_pjw23"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p2gj0"]
 atlas = ExtResource("1_371uh")
@@ -46,6 +47,27 @@ size = Vector2(8, 11)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n6pvg"]
 size = Vector2(14, 12)
 
+[sub_resource type="Gradient" id="Gradient_pjw23"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2npkn"]
+gradient = SubResource("Gradient_pjw23")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd6lc"]
+atlas = ExtResource("4_pjw23")
+region = Rect2(56, 62, 7, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gstla"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd6lc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Slime" type="Node2D"]
 script = ExtResource("1_n6pvg")
 
@@ -72,10 +94,27 @@ target_position = Vector2(-10, 0)
 collision_mask = 64
 
 [node name="hitbox" type="Area2D" parent="."]
-collision_layer = 65
-collision_mask = 65
+collision_layer = 64
+collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_n6pvg")
 debug_color = Color(0.545318, 0.354647, 0.208559, 0.223529)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-5, -15)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(4.92, -0.505)
+rotation = 3.14159
+scale = Vector2(0.04, -1.505)
+texture = SubResource("GradientTexture1D_2npkn")
+
+[node name="slimeHealthbar" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(0, -1)
+scale = Vector2(1.4, 1)
+sprite_frames = SubResource("SpriteFrames_gstla")
+centered = false
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
