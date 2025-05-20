@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://1rfkb5m2kubk"]
+[gd_scene load_steps=10 format=3 uid="uid://1rfkb5m2kubk"]
 
 [ext_resource type="Script" uid="uid://uubu8i7deqoo" path="res://mob/mob.gd" id="1_6jlfs"]
 [ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://characters/slime/slime.tscn" id="1_7b8ug"]
@@ -46,6 +46,32 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
+[sub_resource type="Animation" id="Animation_pirjb"]
+resource_name = "fallback"
+length = 0.4
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"start_fallback"
+}, {
+"args": [],
+"method": &"end_fallback"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mixeo"]
+_data = {
+&"fallback": SubResource("Animation_pirjb")
+}
+
 [node name="Mob" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 3
@@ -72,3 +98,8 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_pirjb")
 max_value = 3.0
 value = 3.0
 show_percentage = false
+
+[node name="FallbackAnim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mixeo")
+}

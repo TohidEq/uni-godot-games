@@ -4,38 +4,62 @@ signal health_depleted;
 
 @onready var happy_boo: Node2D = $HappyBoo
 @onready var progress_bar: ProgressBar = $ProgressBar
-@onready var timer: Timer = $Timer
 @onready var mana_bar: ProgressBar = $ManaBar
 @onready var gun: Area2D = $Gun
+@onready var axe: Node2D = $Axe
 
+enum WPNS{
+  GUN,
+  AXE
+}
 
 const SPEED = 300.0
 const DAMAGE_RATE = 5.0
 var health = 100.0
 
-var mana = 100;
+var mana = 200;
 var mana_drain_rate = 2;
 var mana_refill_rate = 1;
 
+var wpn = WPNS.GUN
 func _ready() -> void:
   #timer.set_wait_time(0.1)
+  choice_wpn()
   pass
+  
+  
+var boosting = false;
+
+func _process(delta: float) -> void:
+  pass
+
+
 
 func _physics_process(delta: float) -> void:
   mana_bar.value=mana
   
-  if (mana<100 and not Input.is_action_just_pressed("boost")):
-    mana += mana_refill_rate
   
-  if Input.is_action_pressed("boost"):
-    if(mana>0):
-      mana -= mana_drain_rate
-      
+  if (mana<200 and boosting==false):
+    mana += mana_refill_rate
+    gun.end_boost_firerate();
+    axe.end_boost_firerate();
+  
+  if (boosting):
+    if(mana >10):
+      axe.start_boost_firerate();
       gun.start_boost_firerate();
     else:
       gun.end_boost_firerate();
+      axe.end_boost_firerate();
+  
+  
+  if Input.is_action_pressed("boost"):
+    if mana>=mana_drain_rate:
+      mana -= mana_drain_rate
+      boosting=true
+      
   if Input.is_action_just_released("boost"):
-    gun.end_boost_firerate();
+    boosting=false
   
   
   
@@ -67,6 +91,29 @@ func _physics_process(delta: float) -> void:
     if health <= 0.0:
       health_depleted.emit()
 
+
+func _input(event: InputEvent) -> void:
+
+  if event.is_action_pressed("select_wpn"):
+    wpn = WPNS.GUN
+  if event.is_action_pressed("select_axe"):
+    wpn = WPNS.AXE
+  
+  choice_wpn()
+    
+func choice_wpn() -> void:
+  #  unselect all
+  gun.select_wpn(false)
+  axe.select_wpn(false)
+  
+  #  select the selected one
+  match  wpn:
+    WPNS.GUN:
+      gun.select_wpn(true)
+    WPNS.AXE:
+      axe.select_wpn(true)
+    _:
+      print("wrong wpn selected")
 
 func _on_hit_box_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
   body.play_hitting()

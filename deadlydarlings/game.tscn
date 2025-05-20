@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7ay8dvcdj8us"]
+[gd_scene load_steps=7 format=3 uid="uid://b7ay8dvcdj8us"]
 
 [ext_resource type="PackedScene" uid="uid://c0pf21fe3yl3w" path="res://player/player.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://b412snmvekaat" path="res://game.gd" id="1_fc0e3"]
@@ -9,6 +9,30 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -59, -69, 0, 0, 0, 0, 1998, -82, 0, 0, 0, 0, 2001, 1134, 0, 0, 0, 0, -56, 1145, 0, 0, 0, 0, -56, -69)
 }
 point_count = 5
+
+[sub_resource type="FontFile" id="FontFile_feb5d"]
+cache/0/72/0/ascent = 0.0
+cache/0/72/0/descent = 0.0
+cache/0/72/0/underline_position = 0.0
+cache/0/72/0/underline_thickness = 0.0
+cache/0/72/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_fc0e3"]
+cache/0/80/0/ascent = 0.0
+cache/0/80/0/descent = 0.0
+cache/0/80/0/underline_position = 0.0
+cache/0/80/0/underline_thickness = 0.0
+cache/0/80/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -69,25 +93,25 @@ vertical_alignment = 1
 y_sort_enabled = true
 
 [node name="PrineTree" parent="Trees" instance=ExtResource("2_e2o6t")]
-position = Vector2(506, 555)
+position = Vector2(246, 574)
 
 [node name="PrineTree2" parent="Trees" instance=ExtResource("2_e2o6t")]
-position = Vector2(620, 304)
+position = Vector2(360, 323)
 
 [node name="PrineTree3" parent="Trees" instance=ExtResource("2_e2o6t")]
-position = Vector2(1393, 335)
+position = Vector2(1711, 314)
 
 [node name="PrineTree4" parent="Trees" instance=ExtResource("2_e2o6t")]
-position = Vector2(1339, 786)
+position = Vector2(1657, 765)
 
 [node name="PrineTree5" parent="Trees" instance=ExtResource("2_e2o6t")]
-position = Vector2(560, 509)
+position = Vector2(300, 528)
 
 [node name="PrineTree6" parent="Trees" instance=ExtResource("2_e2o6t")]
-position = Vector2(560, 635)
+position = Vector2(300, 654)
 
 [node name="PrineTree7" parent="Trees" instance=ExtResource("2_e2o6t")]
-position = Vector2(726, 743)
+position = Vector2(466, 762)
 
 [node name="PrineTree8" parent="Trees" instance=ExtResource("2_e2o6t")]
 position = Vector2(-803, -154)
@@ -277,6 +301,33 @@ position = Vector2(-1529, -1152)
 
 [node name="PrineTree70" parent="Trees" instance=ExtResource("2_e2o6t")]
 position = Vector2(-1363, -1044)
+
+[node name="HowToPlay" type="Label" parent="."]
+offset_left = 552.0
+offset_top = 222.0
+offset_right = 1621.0
+offset_bottom = 842.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_feb5d")
+theme_override_font_sizes/font_size = 72
+text = "Movement: W,A,S,D
+Gun:  [ 1 ]
+Axe:  [ 2 ]
+Aim and shoot: Left Mouse Btn
+
+Boost: Right Mouse Btn"
+vertical_alignment = 1
+
+[node name="Welcome" type="Label" parent="."]
+offset_left = 430.0
+offset_top = 57.0
+offset_right = 1614.0
+offset_bottom = 215.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_fc0e3")
+theme_override_font_sizes/font_size = 80
+text = "Welcome to Deadly Darlings :D"
+vertical_alignment = 1
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -29,3 +29,5 @@ func _on_body_entered(body: Node2D) -> void:
     print("body:")
     print(body)
     body.take_damage();
+  if body.has_method("fallback"):
+    body.fallback(0.005)

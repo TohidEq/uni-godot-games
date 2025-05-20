@@ -5,17 +5,30 @@ extends Area2D
 const BULLET = preload("res://bullet/bullet.tscn")
 @onready var fire_rate_animation: AnimationPlayer = $FireRateAnimation
 
+
 @onready var timer: Timer = $Timer
 
 
 @export var normal_firerate = 0.7
+@export var boost_firerate_val = 0.94
 var fire_rate = normal_firerate;
 
 var is_enemy_close = false;
 
+var selected = true;
+
+
+func select_wpn(value=true):
+  selected = value;
+
 
 
 func _process(delta: float) -> void:
+  
+  
+  set_visible(selected)
+  
+  
   timer.set_wait_time( 1.0 - fire_rate)
   rotation_degrees = wrap(rotation_degrees,0,360);
   if rotation_degrees > 90 and rotation_degrees < 270:
@@ -53,17 +66,19 @@ func shoot():
 
 
 func _on_timer_timeout() -> void:
-  if is_enemy_close:
+  if is_enemy_close and selected:
     shoot()
   pass # Replace with function body.
 
 
 func start_boost_firerate():
-  fire_rate = 0.9;
+  fire_rate = boost_firerate_val;
   
 func end_boost_firerate():
   fire_rate = normal_firerate
 
 
+
+# mishe ye item ro zamin gozasht ke age khordimesh, in func ejra she...(10 sanie boost)
 func boost_firerate():
   fire_rate_animation.play("boost_firerate")

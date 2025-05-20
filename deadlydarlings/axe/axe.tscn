@@ -1,0 +1,186 @@
+[gd_scene load_steps=10 format=3 uid="uid://bpxnnn4pr0mya"]
+
+[ext_resource type="Script" uid="uid://dwtwcyi5qpd7h" path="res://axe/axe.gd" id="1_g4gfw"]
+[ext_resource type="Texture2D" uid="uid://bxw5x35lxhhmo" path="res://axe/Red Axe.png" id="1_ib58u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4gfw"]
+radius = 48.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ib58u"]
+size = Vector2(135, 20)
+
+[sub_resource type="Animation" id="Animation_g4gfw"]
+resource_name = "spin"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AxePivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AxePivot/Area2D/CollisionShape2D2:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AxePivot/Area2D/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AxePivot:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_qvt6e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AxePivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AxePivot/Area2D/CollisionShape2D2:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AxePivot/Area2D/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AxePivot:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tvq3g"]
+_data = {
+&"RESET": SubResource("Animation_qvt6e"),
+&"spin": SubResource("Animation_g4gfw")
+}
+
+[sub_resource type="Animation" id="Animation_tvq3g"]
+resource_name = "boost_firerate"
+length = 10.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"start_boost_firerate"
+}, {
+"args": [],
+"method": &"end_boost_firerate"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_68nvc"]
+_data = {
+&"boost_firerate": SubResource("Animation_tvq3g")
+}
+
+[node name="Axe" type="Node2D"]
+script = ExtResource("1_g4gfw")
+
+[node name="AxePivot" type="Marker2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="AxePivot"]
+position = Vector2(121, -5)
+rotation = 1.5708
+scale = Vector2(0.500912, 0.500912)
+texture = ExtResource("1_ib58u")
+
+[node name="Area2D" type="Area2D" parent="AxePivot"]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AxePivot/Area2D"]
+position = Vector2(185, 0)
+shape = SubResource("CircleShape2D_g4gfw")
+disabled = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AxePivot/Area2D"]
+position = Vector2(68.5, 0)
+shape = SubResource("RectangleShape2D_ib58u")
+disabled = true
+
+[node name="FireAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_tvq3g")
+}
+
+[node name="FireRateAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_68nvc")
+}
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="AxePivot/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0pf21fe3yl3w"]
+[gd_scene load_steps=10 format=3 uid="uid://c0pf21fe3yl3w"]
 
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://bvrpkfy1uj014" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="PackedScene" uid="uid://brjtu3wkx7ux2" path="res://gun/gun.tscn" id="3_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://bpxnnn4pr0mya" path="res://axe/axe.tscn" id="4_yw30f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rkbax"]
 radius = 28.0
@@ -42,7 +43,11 @@ shape = SubResource("CircleShape2D_rkbax")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Gun" parent="." instance=ExtResource("3_g1dw6")]
+visible = false
 position = Vector2(1, -34)
+
+[node name="Axe" parent="." instance=ExtResource("4_yw30f")]
+position = Vector2(0, -46)
 
 [node name="HitBox" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -69,6 +74,7 @@ offset_top = -104.0
 offset_right = 67.0
 offset_bottom = -97.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_qjkh3")
+max_value = 200.0
 value = 100.0
 show_percentage = false
 

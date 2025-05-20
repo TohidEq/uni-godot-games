@@ -11,6 +11,8 @@ extends CharacterBody2D
 
 var health = 3;
 
+var FollowPlayer = 1;
+
 func _ready() -> void:
   slime.play_walk()
 
@@ -18,8 +20,9 @@ func _physics_process(delta: float) -> void:
   var direction = global_position.direction_to(player.global_position);
 
 
-  velocity = direction * speed;
+  velocity = direction * speed * FollowPlayer;
   move_and_slide()
+
 
 
 func take_damage():
@@ -42,5 +45,21 @@ func speed_normal():
   speed = 200.0
   
 func play_hitting():
-  animation_player.play("stop_for_a_moment")
+  #animation_player.play("stop_for_a_moment")
+  pass
   
+
+
+func start_fallback():
+  FollowPlayer = -1;
+
+func end_fallback():
+  FollowPlayer = 1
+  
+  
+@onready var fallback_anim: AnimationPlayer = $FallbackAnim
+
+func fallback(fallback_distance = 1.0):
+  
+  fallback_anim.speed_scale= 1.0-fallback_distance
+  fallback_anim.play("fallback")
