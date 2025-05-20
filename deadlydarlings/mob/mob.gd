@@ -1,0 +1,15 @@
+extends CharacterBody2D
+
+
+#@onready var player = get_node("Game/player");
+@onready var player: CharacterBody2D = $"../Player"
+
+@export var speed = 200.0;
+
+
+func _physics_process(delta: float) -> void:
+  var direction = global_position.direction_to(player.global_position);
+
+
+  velocity = direction * speed;
+  move_and_slide()
