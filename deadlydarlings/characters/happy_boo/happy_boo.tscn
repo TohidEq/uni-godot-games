@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://pbmyh1qru7p"]
+[gd_scene load_steps=13 format=3 uid="uid://pbmyh1qru7p"]
 
 [ext_resource type="Script" uid="uid://jd2eyytv5iwh" path="res://characters/happy_boo/happy_boo.gd" id="1_kg7lb"]
 [ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://characters/ground_shadow.png" id="2_62bos"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://qmqpm6asge1i" path="res://characters/happy_boo/square_upper_leg.png" id="5_q2t1e"]
 [ext_resource type="Texture2D" uid="uid://cksiu5gst6fmp" path="res://characters/happy_boo/square_body.png" id="6_w3ck4"]
 [ext_resource type="Texture2D" uid="uid://cvs0lh814pk7h" path="res://characters/happy_boo/square_face.png" id="7_h5h8s"]
+[ext_resource type="Texture2D" uid="uid://cai2ijnbypqtr" path="res://characters/slime/slime_hurt_eyes.png" id="8_l3moq"]
 
 [sub_resource type="Animation" id="Animation_hed62"]
 length = 0.001
@@ -648,4 +649,11 @@ offset = Vector2(0, -23)
 [node name="SquareFace" type="Sprite2D" parent="Colorizer/SquareBody"]
 position = Vector2(0, -17)
 texture = ExtResource("7_h5h8s")
-metadata/_edit_lock_ = true
+
+[node name="SlimeHurtEyes" type="Sprite2D" parent="Colorizer/SquareBody"]
+visible = false
+position = Vector2(0.219772, -19.5853)
+rotation = 0.0248854
+scale = Vector2(1.01605, 1.00984)
+skew = 0.000307322
+texture = ExtResource("8_l3moq")

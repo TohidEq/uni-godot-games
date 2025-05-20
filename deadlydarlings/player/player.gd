@@ -95,8 +95,16 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 
   if event.is_action_pressed("select_wpn"):
+    happy_boo.get_node("Colorizer").modulate=Color("#ff922d")
+    happy_boo.get_node("Colorizer").get_node("SquareBody").get_node("SquareFace").set_visible(true)
+    happy_boo.get_node("Colorizer").get_node("SquareBody").get_node("SlimeHurtEyes").set_visible(false)
+    
     wpn = WPNS.GUN
   if event.is_action_pressed("select_axe"):
+    happy_boo.get_node("Colorizer").modulate=Color("#84181d")
+    happy_boo.get_node("Colorizer").get_node("SquareBody").get_node("SquareFace").set_visible(false)
+    happy_boo.get_node("Colorizer").get_node("SquareBody").get_node("SlimeHurtEyes").set_visible(true)
+    
     wpn = WPNS.AXE
   
   choice_wpn()
