@@ -1,10 +1,50 @@
-[gd_scene load_steps=4 format=3 uid="uid://1rfkb5m2kubk"]
+[gd_scene load_steps=8 format=3 uid="uid://1rfkb5m2kubk"]
 
 [ext_resource type="Script" uid="uid://uubu8i7deqoo" path="res://mob/mob.gd" id="1_6jlfs"]
 [ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://characters/slime/slime.tscn" id="1_7b8ug"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6jlfs"]
 radius = 42.0
+
+[sub_resource type="Animation" id="Animation_6jlfs"]
+resource_name = "stop_for_a_moment"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 1.93333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"speed_zero"
+}, {
+"args": [],
+"method": &"speed_normal"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pirjb"]
+_data = {
+&"stop_for_a_moment": SubResource("Animation_6jlfs")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6jlfs"]
+bg_color = Color(0, 0, 0, 0.478431)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pirjb"]
+bg_color = Color(0.615686, 0, 0.121569, 0.729412)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [node name="Mob" type="CharacterBody2D"]
 collision_layer = 2
@@ -16,3 +56,19 @@ script = ExtResource("1_6jlfs")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -30)
 shape = SubResource("CircleShape2D_6jlfs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pirjb")
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -28.0
+offset_top = -98.0
+offset_right = 32.0
+offset_bottom = -89.0
+theme_override_styles/background = SubResource("StyleBoxFlat_6jlfs")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pirjb")
+max_value = 3.0
+value = 3.0
+show_percentage = false

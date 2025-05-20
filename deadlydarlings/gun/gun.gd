@@ -3,10 +3,20 @@ extends Area2D
 @onready var spr_gun: Sprite2D = $WeaponPivot/Sprite2D
 
 const BULLET = preload("res://bullet/bullet.tscn")
+@onready var fire_rate_animation: AnimationPlayer = $FireRateAnimation
+
+@onready var timer: Timer = $Timer
+
+
+@export var normal_firerate = 0.7
+var fire_rate = normal_firerate;
 
 var is_enemy_close = false;
 
+
+
 func _process(delta: float) -> void:
+  timer.set_wait_time( 1.0 - fire_rate)
   rotation_degrees = wrap(rotation_degrees,0,360);
   if rotation_degrees > 90 and rotation_degrees < 270:
     if scale.y > 0:
@@ -14,6 +24,8 @@ func _process(delta: float) -> void:
   else:
     if scale.y < 0:
       scale.y *= -1;
+  
+  
 
 
 func _physics_process(delta: float) -> void:
@@ -34,9 +46,6 @@ func _physics_process(delta: float) -> void:
 
 
 func shoot():
-  # var new_bullet = BULLET.instantiate()
-  # new_bullet.global_position= %BulletSpawnPoint.global_position
-
   var bullet_instance = BULLET.instantiate();
   get_tree().root.add_child(bullet_instance);
   bullet_instance.global_position = %BulletSpawnPoint.global_position;
@@ -47,3 +56,14 @@ func _on_timer_timeout() -> void:
   if is_enemy_close:
     shoot()
   pass # Replace with function body.
+
+
+func start_boost_firerate():
+  fire_rate = 0.9;
+  
+func end_boost_firerate():
+  fire_rate = normal_firerate
+
+
+func boost_firerate():
+  fire_rate_animation.play("boost_firerate")

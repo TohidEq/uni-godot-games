@@ -6,18 +6,15 @@ const SPEED = 1000;
 const RANGE = 1200;
 
 # func _physics_process(delta: float) -> void:
-
 #   var direction = Vector2.RIGHT.rotated(rotation);
-
 #   position = direction * SPEED * delta
-
 #   traveled_distance += 1000*delta
-
 #   if traveled_distance >= RANGE:
 #     queue_free()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
+  
   position += transform.x * SPEED * delta;
 
   traveled_distance += SPEED*delta

@@ -34,27 +34,6 @@ position = Vector2(-39.3214, -69.1244)
 rotation = -0.0063198
 progress = 19.6318
 
-[node name="PrineTree" parent="." instance=ExtResource("2_e2o6t")]
-position = Vector2(506, 555)
-
-[node name="PrineTree2" parent="." instance=ExtResource("2_e2o6t")]
-position = Vector2(620, 304)
-
-[node name="PrineTree3" parent="." instance=ExtResource("2_e2o6t")]
-position = Vector2(1393, 335)
-
-[node name="PrineTree4" parent="." instance=ExtResource("2_e2o6t")]
-position = Vector2(1339, 786)
-
-[node name="PrineTree5" parent="." instance=ExtResource("2_e2o6t")]
-position = Vector2(560, 509)
-
-[node name="PrineTree6" parent="." instance=ExtResource("2_e2o6t")]
-position = Vector2(560, 635)
-
-[node name="PrineTree7" parent="." instance=ExtResource("2_e2o6t")]
-position = Vector2(726, 743)
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.4
 autostart = true
@@ -85,6 +64,219 @@ theme_override_font_sizes/font_size = 120
 text = "GAME OVER"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Trees" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="PrineTree" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(506, 555)
+
+[node name="PrineTree2" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(620, 304)
+
+[node name="PrineTree3" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(1393, 335)
+
+[node name="PrineTree4" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(1339, 786)
+
+[node name="PrineTree5" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(560, 509)
+
+[node name="PrineTree6" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(560, 635)
+
+[node name="PrineTree7" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(726, 743)
+
+[node name="PrineTree8" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(-803, -154)
+
+[node name="PrineTree9" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(-689, -405)
+
+[node name="PrineTree10" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(84, -374)
+
+[node name="PrineTree11" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(30, 77)
+
+[node name="PrineTree12" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(-749, -200)
+
+[node name="PrineTree13" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(-749, -74)
+
+[node name="PrineTree14" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(-583, 34)
+
+[node name="PrineTree15" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(-430, 1790)
+
+[node name="PrineTree16" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(-316, 1539)
+
+[node name="PrineTree17" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(457, 1570)
+
+[node name="PrineTree18" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(403, 2021)
+
+[node name="PrineTree19" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(-376, 1744)
+
+[node name="PrineTree20" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(-376, 1870)
+
+[node name="PrineTree21" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(-210, 1978)
+
+[node name="PrineTree22" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(-1739, 1081)
+
+[node name="PrineTree23" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(-1625, 830)
+
+[node name="PrineTree24" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(-852, 861)
+
+[node name="PrineTree25" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(-906, 1312)
+
+[node name="PrineTree26" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(-1685, 1035)
+
+[node name="PrineTree27" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(-1685, 1161)
+
+[node name="PrineTree28" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(-1519, 1269)
+
+[node name="PrineTree29" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(2678, 1338)
+
+[node name="PrineTree30" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(2792, 1087)
+
+[node name="PrineTree31" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(3565, 1118)
+
+[node name="PrineTree32" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(3511, 1569)
+
+[node name="PrineTree33" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(2732, 1292)
+
+[node name="PrineTree34" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(2732, 1418)
+
+[node name="PrineTree35" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(2898, 1526)
+
+[node name="PrineTree36" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(1179, 1736)
+
+[node name="PrineTree37" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(1293, 1485)
+
+[node name="PrineTree38" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(2066, 1516)
+
+[node name="PrineTree39" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(2012, 1967)
+
+[node name="PrineTree40" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(1233, 1690)
+
+[node name="PrineTree41" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(1233, 1816)
+
+[node name="PrineTree42" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(1399, 1924)
+
+[node name="PrineTree43" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(2812, 292)
+
+[node name="PrineTree44" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(2926, 41)
+
+[node name="PrineTree45" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(3699, 72)
+
+[node name="PrineTree46" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(3645, 523)
+
+[node name="PrineTree47" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(2866, 246)
+
+[node name="PrineTree48" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(2866, 372)
+
+[node name="PrineTree49" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(3032, 480)
+
+[node name="PrineTree50" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(1503, -417)
+
+[node name="PrineTree51" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(1617, -668)
+
+[node name="PrineTree52" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(2390, -637)
+
+[node name="PrineTree53" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(2336, -186)
+
+[node name="PrineTree54" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(1557, -463)
+
+[node name="PrineTree55" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(1557, -337)
+
+[node name="PrineTree56" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(1723, -229)
+
+[node name="PrineTree57" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(197, -1196)
+
+[node name="PrineTree58" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(311, -1447)
+
+[node name="PrineTree59" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(1084, -1416)
+
+[node name="PrineTree60" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(1030, -965)
+
+[node name="PrineTree61" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(251, -1242)
+
+[node name="PrineTree62" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(251, -1116)
+
+[node name="PrineTree63" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(417, -1008)
+
+[node name="PrineTree64" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(-1583, -1232)
+
+[node name="PrineTree65" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(-1469, -1483)
+
+[node name="PrineTree66" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(-696, -1452)
+
+[node name="PrineTree67" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(-750, -1001)
+
+[node name="PrineTree68" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(-1529, -1278)
+
+[node name="PrineTree69" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(-1529, -1152)
+
+[node name="PrineTree70" parent="Trees" instance=ExtResource("2_e2o6t")]
+position = Vector2(-1363, -1044)
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

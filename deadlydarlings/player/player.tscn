@@ -1,14 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0pf21fe3yl3w"]
+[gd_scene load_steps=9 format=3 uid="uid://c0pf21fe3yl3w"]
 
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://bvrpkfy1uj014" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="PackedScene" uid="uid://brjtu3wkx7ux2" path="res://gun/gun.tscn" id="3_g1dw6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rkbax"]
-radius = 28.0179
+radius = 28.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g1dw6"]
-radius = 35.1283
+radius = 39.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1dw6"]
 bg_color = Color(0.152941, 0.168627, 0.188235, 0.67451)
@@ -19,6 +19,13 @@ corner_radius_bottom_left = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yw30f"]
 bg_color = Color(0.623529, 0.866667, 0.317647, 0.8)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjkh3"]
+bg_color = Color(2.79158e-06, 0.672486, 0.777014, 1)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
@@ -55,3 +62,15 @@ theme_override_styles/background = SubResource("StyleBoxFlat_g1dw6")
 theme_override_styles/fill = SubResource("StyleBoxFlat_yw30f")
 value = 100.0
 show_percentage = false
+
+[node name="ManaBar" type="ProgressBar" parent="."]
+offset_left = -63.0
+offset_top = -104.0
+offset_right = 67.0
+offset_bottom = -97.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_qjkh3")
+value = 100.0
+show_percentage = false
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_shape_entered" from="HitBox" to="." method="_on_hit_box_body_shape_entered"]
