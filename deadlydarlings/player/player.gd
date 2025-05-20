@@ -14,6 +14,7 @@ enum WPNS{
 }
 
 const SPEED = 300.0
+var change_speed = 0;
 const DAMAGE_RATE = 5.0
 var health = 100.0
 
@@ -65,7 +66,7 @@ func _physics_process(delta: float) -> void:
   
   
   var direction = Input.get_vector("move_left","move_right","move_up","move_down");
-  velocity = direction * SPEED
+  velocity = direction * (SPEED+change_speed)
   move_and_slide()
 
   #print("move direction")
@@ -113,13 +114,14 @@ func choice_wpn() -> void:
   #  unselect all
   gun.select_wpn(false)
   axe.select_wpn(false)
-  
+  change_speed = 0;
   #  select the selected one
   match  wpn:
     WPNS.GUN:
       gun.select_wpn(true)
     WPNS.AXE:
       axe.select_wpn(true)
+      change_speed=40
     _:
       print("wrong wpn selected")
 
