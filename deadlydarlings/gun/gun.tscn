@@ -21,4 +21,11 @@ position = Vector2(73, 0)
 texture = ExtResource("2_qhldj")
 
 [node name="BulletSpawnPoint" type="Marker2D" parent="WeaponPivot/Sprite2D"]
+unique_name_in_owner = true
 position = Vector2(26, -12)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
