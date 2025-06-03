@@ -9,12 +9,25 @@ extends CharacterBody2D
 
 @export var speed = 200.0;
 
+var point=10;
+
 var health = 3;
 
 var FollowPlayer = 1;
 
 func _ready() -> void:
   slime.play_walk()
+  
+  if(player.score >100 ):
+    scale.x = 1.0 + float(player.score)/1000.0
+    scale.y = 1.0 + float(player.score)/1000.0
+  
+  if scale.x > 5.0:
+    scale.x = 5.0
+    scale.y = 5.0
+    
+  point = int(scale.x*10.0)
+  
 
 func _physics_process(delta: float) -> void:
   var direction = global_position.direction_to(player.global_position);
@@ -31,6 +44,7 @@ func take_damage():
   progress_bar.value=health
   if(health<=0):
     queue_free()
+    player.score += point;
     const SMOKE_SCENE = preload("res://smoke_explosion/smoke_explosion.tscn")
     var smoke = SMOKE_SCENE.instantiate()
     get_parent().add_child(smoke)

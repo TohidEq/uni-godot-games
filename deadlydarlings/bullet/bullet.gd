@@ -26,8 +26,8 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
   queue_free()
   if body.has_method("take_damage"):
-    print("body:")
-    print(body)
+    #print("body:")
+    #print(body)
     body.take_damage();
   if body.has_method("fallback"):
     body.fallback(0.005)

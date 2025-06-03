@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal health_depleted;
+@onready var score_label: Label = $score
 
 @onready var happy_boo: Node2D = $HappyBoo
 @onready var progress_bar: ProgressBar = $ProgressBar
@@ -8,13 +9,16 @@ signal health_depleted;
 @onready var gun: Area2D = $Gun
 @onready var axe: Node2D = $Axe
 
+var score = 0;
+
 enum WPNS{
   GUN,
   AXE
 }
 
-const SPEED = 300.0
+const SPEED = 250.0
 var change_speed = 0;
+var change_speed_per_100xp = 10;
 const DAMAGE_RATE = 5.0
 var health = 100.0
 
@@ -24,6 +28,8 @@ var mana_refill_rate = 1;
 
 var wpn = WPNS.GUN
 func _ready() -> void:
+  #  test
+  #position.x=-6430;
   #timer.set_wait_time(0.1)
   choice_wpn()
   pass
@@ -32,7 +38,19 @@ func _ready() -> void:
 var boosting = false;
 
 func _process(delta: float) -> void:
-  pass
+  score_label.text=str(score)
+  #print(position.x)
+  if position.x < -4500:
+    position.x = -4500;
+    
+  if position.y < -4500:
+    position.y = -4500;
+    
+  if position.x > 6500:
+    position.x = 6500;
+    
+  if position.y > 3000:
+    position.y = 3000;
 
 
 
@@ -66,7 +84,8 @@ func _physics_process(delta: float) -> void:
   
   
   var direction = Input.get_vector("move_left","move_right","move_up","move_down");
-  velocity = direction * (SPEED+change_speed)
+  var increase_speed = change_speed_per_100xp*int(score/100)
+  velocity = direction * (SPEED + change_speed + increase_speed)
   move_and_slide()
 
   #print("move direction")
@@ -119,9 +138,10 @@ func choice_wpn() -> void:
   match  wpn:
     WPNS.GUN:
       gun.select_wpn(true)
+      change_speed=80;
     WPNS.AXE:
       axe.select_wpn(true)
-      change_speed=40
+      change_speed=10;
     _:
       print("wrong wpn selected")
 

@@ -1,10 +1,6 @@
 extends Node2D
 @onready var path_follow_2d: PathFollow2D = $Player/Path2D/PathFollow2D
 
-
-
-
-
 func spawn_mob():
   var new_mob = preload("res://mob/mob.tscn").instantiate()
   path_follow_2d.progress_ratio = randf()

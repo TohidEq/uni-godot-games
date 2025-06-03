@@ -1,0 +1,119 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy3kfms52rwm0"]
+
+[ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://characters/ground_shadow.png" id="1_o0qsl"]
+
+[node name="rock" type="Node2D"]
+
+[node name="GroundShadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.419608)
+position = Vector2(-20.5, 15.5075)
+scale = Vector2(0.464286, 0.480769)
+texture = ExtResource("1_o0qsl")
+
+[node name="GroundShadow6" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.443137)
+position = Vector2(25.375, 44.1325)
+scale = Vector2(0.443453, 0.495192)
+texture = ExtResource("1_o0qsl")
+
+[node name="GroundShadow2" type="Sprite2D" parent="."]
+modulate = Color(0.23, 0.13202, 0.0667, 1)
+position = Vector2(24, 42.6325)
+scale = Vector2(0.452381, 0.4375)
+texture = ExtResource("1_o0qsl")
+
+[node name="GroundShadow5" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.568627)
+position = Vector2(-13, 47.945)
+scale = Vector2(0.285714, 0.271635)
+texture = ExtResource("1_o0qsl")
+
+[node name="GroundShadow3" type="Sprite2D" parent="."]
+modulate = Color(0.25, 0.1435, 0.0725, 1)
+position = Vector2(-14, 46.945)
+scale = Vector2(0.285715, 0.233173)
+texture = ExtResource("1_o0qsl")
+
+[node name="GroundShadow4" type="Sprite2D" parent="."]
+modulate = Color(0.22, 0.12628, 0.0638, 1)
+position = Vector2(-21.5625, 13.0075)
+scale = Vector2(0.462798, 0.456731)
+texture = ExtResource("1_o0qsl")
+
+[node name="GroundShadow12" type="Sprite2D" parent="."]
+modulate = Color(0.52, 0.29848, 0.1508, 1)
+position = Vector2(-21.5, 12.0075)
+scale = Vector2(0.464286, 0.423366)
+texture = ExtResource("1_o0qsl")
+
+[node name="GroundShadow7" type="Sprite2D" parent="."]
+modulate = Color(0.331863, 0.190553, 0.097592, 1)
+position = Vector2(-21.5625, 12.5075)
+scale = Vector2(0.462798, 0.403846)
+texture = ExtResource("1_o0qsl")
+
+[node name="GroundShadow8" type="Sprite2D" parent="."]
+modulate = Color(0.469698, 0.279533, 0.154796, 1)
+position = Vector2(-14, 45.945)
+scale = Vector2(0.285715, 0.194712)
+texture = ExtResource("1_o0qsl")
+
+[node name="GroundShadow19" type="Sprite2D" parent="."]
+modulate = Color(0.331863, 0.190553, 0.097592, 1)
+position = Vector2(-14, 46.5075)
+scale = Vector2(0.285715, 0.173077)
+texture = ExtResource("1_o0qsl")
+
+[node name="GroundShadow18" type="Sprite2D" parent="."]
+modulate = Color(0.454788, 0.269813, 0.14843, 1)
+position = Vector2(24, 41.0075)
+scale = Vector2(0.452381, 0.384616)
+texture = ExtResource("1_o0qsl")
+
+[node name="GroundShadow9" type="Sprite2D" parent="."]
+modulate = Color(0.331863, 0.190553, 0.097592, 1)
+position = Vector2(24, 42.0075)
+scale = Vector2(0.452381, 0.365385)
+texture = ExtResource("1_o0qsl")
+
+[node name="GroundShadow10" type="Sprite2D" parent="."]
+modulate = Color(0.48, 0.27552, 0.1392, 1)
+position = Vector2(-32, 7.00751)
+scale = Vector2(0.0706846, 0.0468751)
+texture = ExtResource("1_o0qsl")
+
+[node name="GroundShadow11" type="Sprite2D" parent="."]
+modulate = Color(0.48, 0.27552, 0.1392, 1)
+position = Vector2(-20, 4.00751)
+scale = Vector2(0.0937501, 0.0552886)
+texture = ExtResource("1_o0qsl")
+
+[node name="GroundShadow13" type="Sprite2D" parent="."]
+modulate = Color(0.48, 0.27552, 0.1392, 1)
+position = Vector2(-13, 13.0075)
+scale = Vector2(0.106399, 0.0661059)
+texture = ExtResource("1_o0qsl")
+
+[node name="GroundShadow14" type="Sprite2D" parent="."]
+modulate = Color(0.48, 0.27552, 0.1392, 1)
+position = Vector2(-19.4844, 44.3669)
+scale = Vector2(0.0353423, 0.0138222)
+texture = ExtResource("1_o0qsl")
+
+[node name="GroundShadow15" type="Sprite2D" parent="."]
+modulate = Color(0.48, 0.27552, 0.1392, 1)
+position = Vector2(-13.5156, 45.3669)
+scale = Vector2(0.0353423, 0.0138222)
+texture = ExtResource("1_o0qsl")
+
+[node name="GroundShadow16" type="Sprite2D" parent="."]
+modulate = Color(0.48, 0.27552, 0.1392, 1)
+position = Vector2(13, 36.0075)
+scale = Vector2(0.0468751, 0.0276444)
+texture = ExtResource("1_o0qsl")
+
+[node name="GroundShadow17" type="Sprite2D" parent="."]
+modulate = Color(0.48, 0.27552, 0.1392, 1)
+position = Vector2(27, 38.0075)
+scale = Vector2(0.0714286, 0.0384615)
+texture = ExtResource("1_o0qsl")

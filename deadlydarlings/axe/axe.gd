@@ -67,8 +67,8 @@ func _on_timer_timeout() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
   if body.has_method("take_damage"):
-    print("body:")
-    print(body)
+    #print("body:")
+    #print(body)
     body.take_damage();
   if body.has_method("fallback"):
     body.fallback(0.1)
