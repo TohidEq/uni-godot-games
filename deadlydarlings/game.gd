@@ -1,6 +1,11 @@
 extends Node2D
 @onready var path_follow_2d: PathFollow2D = $Player/Path2D/PathFollow2D
 
+func _ready() -> void:
+  
+  pass
+
+
 func spawn_mob():
   var new_mob = preload("res://mob/mob.tscn").instantiate()
   path_follow_2d.progress_ratio = randf()
@@ -14,6 +19,6 @@ func _on_timer_timeout() -> void:
 @onready var game_over: CanvasLayer = $GameOver
 
 func _on_player_health_depleted() -> void:
-  game_over.visible =true
-  get_tree().paused=true
+  game_over.visible = true
+  get_tree().paused = true
   
